@@ -1,0 +1,38 @@
+#board div {
+	width: 160px;
+	position:relative;
+}
+
+#board div div{
+	width: 50px;
+	height: 50px;
+	float: left;
+	text-align:center;
+	font-size: 50px;
+}
+
+.clear {
+	width:100px;
+	clear:both;
+}
+.X{
+	color: #990000;
+}
+
+.O{
+	color: #000099;
+}
+
+.c{
+	border: 1px solid #ccc;
+}
+
+.n, .s {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.cw, .ce {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,8 @@
+%h1 Welcome to Your Game!
+%h2
+  You are 
+  %span{class: player}= player
+%p Id: #{board.id}
+%p
+#board
+  #{ this.render("board", board) }

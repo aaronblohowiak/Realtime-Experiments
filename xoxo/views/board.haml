@@ -1,0 +1,17 @@
+.north
+  .nw{class: nw} #{(nw || "")}
+  .n{class: n} #{(n || "")}
+  .ne{class: ne } #{(ne || "")}
+.center
+  .cw{class: cw } #{(cw || "")}
+  .c{class: c } #{(c || "")}
+  .ce{class: ce } #{(ce || "")}
+.south
+  .sw{class: sw } #{(sw || "")}
+  .s{class: s } #{(s || "")}
+  .se{class: se } #{(se || "")}
+
+.clear
+
+:if winner
+  #{winner} Won!!!
