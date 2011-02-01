@@ -5,9 +5,6 @@ var sharedViews = require('shared-views'),
     newId = require("uuid-pure").uuid,
     _ = require("underscore")._;
 
-var redis = require("redis"),
-    client = redis.createClient();
-
 //grab a list of file names that end in .haml in the views/ folder
 var filenames = require('glob').globSync("./views/*.haml");
 
