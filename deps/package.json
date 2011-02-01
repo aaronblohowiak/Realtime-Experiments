@@ -1,0 +1,20 @@
+{
+  "name": "deps",
+  "version": "0.0.0",
+  "repository": "git://github.com/aaronblohowiak/Transitive-Examples.git",
+  "directories": {
+    "lib": "."
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "haml": "0.2.5",
+    "glob": "1.1.0",
+    "shared-views": "0.5.3",
+    "push-it": "*",
+    "underscore": "1.1.4",
+    "redis": "0.5.2",
+    "connect": "0.5.6"
+  }
+}
