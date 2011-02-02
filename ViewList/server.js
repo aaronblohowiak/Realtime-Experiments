@@ -59,7 +59,10 @@ $templates.renderWithPrependOnUpdate = function(name, obj){
   data.bindings.push(binding);
 
   var output = '<div id="'+binding.elmId+'" class="prependOnUpdate">';
-  output = output + this.render(name, obj);
+  for(var i = obj.length - 1; i >= 0; i--){
+    output = output + this.render(name, obj[i]);
+  }
+
   output = output + '</div>';
 
   return output;
@@ -113,14 +116,45 @@ viewCount.visit = function(){
     channel: "viewCount",
     data: this
   });
+};
+
+var viewList = [];
+
+viewList.id = "viewList";
+viewList.add = function(view){
+  //let's not get crazy here ;)
+  // a ring buffer would be more appropriate,
+  //  but this is just an xperiment!
+  if(this.length > 10) this.shift();
+
+  this.push(view);
+  
+  pi.publish(pi.channel("viewList"), {
+    channel: "viewList",
+    data: view
+  });
+};
+
+var PageView = function (req){ 
+  return {
+    remoteAddr: (req.socket && req.socket.remoteAddress),
+    time: (new Date).toUTCString(),
+    method: req.method,
+    referrer: (req.headers['referer'] || req.headers['referrer'] || ''),
+    ua: (req.headers['user-agent'] || '')
+  }
 }
 
-function httpRoutes(app){
+var httpRoutes = function (app){
   app.get('/', function(req, res){
     viewCount.visit();
+    viewList.add(new PageView(req));
     res.writeHead(200, { 'Content-Type': 'text/html', 
       'Cache-Control': 'no-cache, no-store' });  
-    res.end(render('home', { viewCount: viewCount } ));
+    res.end(render('home', { 
+      viewCount: viewCount ,
+      viewList: viewList
+    }));
   })
 }
 

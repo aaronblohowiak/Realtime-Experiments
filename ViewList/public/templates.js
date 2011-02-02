@@ -11,8 +11,8 @@ with(locals || {}) {
   try {
     return ("<h1>Hello, world!!</h1><div>" + 
 this.renderWithReplaceOnUpdate("view_count", viewCount) + 
-"</div><h2>Repeated</h2><div>" + 
-this.renderWithReplaceOnUpdate("view_count", viewCount) + 
+"</div><h3>View List</h3><div>" + 
+this.renderWithPrependOnUpdate("view_list_item", viewList) + 
 "</div>");
   } catch (e) {
     return "\n<pre class='error'>" + html_escape(e.stack) + "</pre>\n";
@@ -57,6 +57,29 @@ lastVisit +
 (function () { if (count > 10) { return (
 "<h2>You are so popular!!!</h2>"
 );} else { return ""; } }).call(this));
+  } catch (e) {
+    return "\n<pre class='error'>" + html_escape(e.stack) + "</pre>\n";
+  }
+}
+}
+, "view_list_item": function (locals) {
+function html_escape(text) {
+    return (text + "").
+      replace(/&/g, "&amp;").
+      replace(/</g, "&lt;").
+      replace(/>/g, "&gt;").
+      replace(/\"/g, "&quot;");
+  }
+with(locals || {}) {
+  try {
+    return ("<div class=\"view_list_item\"></div> [" +
+time +
+"] " +
+remoteAddr +
+" : [" +
+method +
+"] -- " +
+ua);
   } catch (e) {
     return "\n<pre class='error'>" + html_escape(e.stack) + "</pre>\n";
   }
