@@ -27,3 +27,8 @@ Open it up in two browsers. When you open the second browser, the viewcount shou
 Build on the ViewCount to also support the concept of a stream, where updates are items to be prepended to the stream in the browser.
 
 `cd ViewList && node server.js`
+
+### Presence
+Builds on the ViewList example to also support a collection with Add/Remove semantics.  There is a setInterval that will Add/Remove people from the `present` collection.  This is also bubbled up to the UI without re-rendering the entire collection.
+
+`cd Presence && node server.js`

@@ -1,0 +1,8 @@
+%h1 Hello, world!!
+%div= this.renderWithReplaceOnUpdate("view_count", viewCount)
+%h2 You Are:
+%div= this.renderWithReplaceOnUpdate("person", youAre)
+%h3 Present:
+%div= this.renderCollectionWithAddRemove("person", present)
+%h3 View List
+%div= this.renderWithPrependOnUpdate("view_list_item", viewList)

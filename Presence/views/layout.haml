@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %script{src: "/javascript/jquery.min.js"}
+    %script{src: "/javascript/push-it.js"}
+    %script{src: "/socket.io/socket.io.js"}
+    %script{src: "/templates.js"}
+    %script{src: "/javascript/app.js"}
+    
+    %link{rel: "stylesheet", type: "text/css", href: "/css/app.css"}
+    %title
+      ViewCount example
+  %body
+    .outer-wrapper
+      .inner-wrapper
+        .content= content
+    :script
+      #{etc}
